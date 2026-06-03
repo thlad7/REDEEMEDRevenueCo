@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+<title>REDEEMED Revenue Co. — Your Calling Deserves a Strategy</title>
+
+<!-- Google-Optimized Favicon Tags -->
+<link rel="icon" type="image/png" href="favicon.png" sizes="32x32">
+<link rel="icon" type="image/png" href="favicon.png" sizes="48x48">
+<link rel="shortcut icon" href="favicon.png">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --navy: #0f1f2e;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --cream: #f5f0e8;
+    --white: #ffffff;
+    --gray: #6b7280;
+    --light-gray: #f9f7f4;
+    --dark: #0a1520;
+    --transition: all 0.3s ease;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--cream);
+    color: var(--navy);
+    overflow-x: hidden;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.75rem 4rem;
+    background: rgba(15, 31, 46, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.2);
+  }
+
+  .nav-logo-container {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    position: relative;
+    z-index: 1001;
+  }
+
+  .nav-logo-img {
+    height: 45px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .nav-logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold);
+    letter-spacing: 0.02em;
+  }
+
+  .nav-logo-text span {
+    color: var(--white);
+    font-weight: 400;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    transition: var(--transition);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: var(--gold);
+    color: var(--navy) !important;
+    padding: 0.6rem 1.5rem;
+    border-radius: 2px;
+    font-weight: 600 !important;
+    transition: var(--transition) !important;
+  }
+
+  .nav-cta:hover { 
+    background: var(--gold-light) !important; 
+    transform: translateY(-1px);
+  }
+
+  /* MOBILE MENU TOGGLE */
+  .mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-toggle span {
+    width: 28px;
+    height: 2px;
+    background-color: var(--gold);
+    transition: var(--transition);
+    border-radius: 2px;
+  }
+
+  .mobile-toggle.active span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .mobile-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  .mobile-toggle.active span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding: 9rem 4rem 6rem;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; right: -200px;
+    width: 700px; height: 700px;
+    background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -100px; left: -100px;
+    width: 500px; height: 500px;
+    background: radial-gradient(circle, rgba(201,168,76,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-cross {
+    position: absolute;
+    right: 8%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.03;
+    font-size: clamp(15rem, 30vw, 28rem);
+    color: var(--gold);
+    font-family: serif;
+    pointer-events: none;
+    user-select: none;
+    line-height: 1;
+  }
+
+  .hero-content {
+    max-width: 760px;
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 0.9s ease both;
+  }
+
+  .hero-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: block;
+    width: 32px; height: 1px;
+    background: var(--gold);
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 9vw, 5rem);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.1;
+    margin-bottom: 1.75rem;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+  }
+
+  .hero-sub {
+    font-size: clamp(1.05rem, 3vw, 1.2rem);
+    color: rgba(255,255,255,0.65);
+    line-height: 1.75;
+    max-width: 580px;
+    margin-bottom: 2.5rem;
+    font-weight: 300;
+  }
+
+  .hero-tagline {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--gold-light);
+    margin-bottom: 3rem;
+    opacity: 0.9;
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary, .btn-secondary {
+    padding: 1rem 2.25rem;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 2px;
+    transition: var(--transition);
+    text-align: center;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .btn-primary {
+    background: var(--gold);
+    color: var(--navy);
+    font-weight: 700;
+    border: none;
+  }
+
+  .btn-primary:hover { 
+    background: var(--gold-light); 
+    transform: translateY(-2px); 
+    box-shadow: 0 10px 20px rgba(201,168,76,0.2); 
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .btn-secondary:hover { 
+    border-color: var(--gold); 
+    color: var(--gold); 
+    background: rgba(201,168,76,0.05); 
+  }
+
+  /* PAIN SECTION */
+  .pain { background: var(--white); padding: 6rem 4rem; text-align: center; }
+
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.25rem;
+  }
+
+  .section-label::before, .section-label::after {
+    content: ''; display: block; width: 24px; height: 1px; background: var(--gold);
+  }
+
+  .pain h2, .how h2, .services h2, .faq h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2rem, 6vw, 3rem);
+    font-weight: 700;
+    color: var(--navy);
+    max-width: 680px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.2;
+  }
+
+  .pain-intro, .services-intro, .how-intro {
+    font-size: 1.1rem; color: var(--gray); max-width: 580px; margin: 0 auto 3.5rem; line-height: 1.75;
+  }
+
+  .pain-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.5rem; max-width: 1100px; margin: 0 auto;
+  }
+
+  .pain-card {
+    background: var(--light-gray); border: 1px solid rgba(15,31,46,0.08); border-left: 3px solid var(--gold);
+    padding: 2rem; border-radius: 2px; text-align: left; transition: var(--transition);
+  }
+  
+  .pain-card:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+  .pain-card p { font-size: 0.975rem; color: var(--navy); line-height: 1.7; }
+  .pain-card p::before {
+    content: '"'; font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--gold); display: block; line-height: 1; margin-bottom: 0.5rem;
+  }
+
+  /* WHO WE SERVE */
+  .who { background: var(--navy); padding: 6rem 4rem; position: relative; overflow: hidden; }
+  .who::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+
+  .who-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem; align-items: center; position: relative; z-index: 1; }
+  .who-text .section-label { color: var(--gold); justify-content: flex-start; }
+  .who-text .section-label::before { display: none; }
+  .who-text .section-label::after { background: var(--gold); }
+
+  .who-text h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 6vw, 2.6rem); font-weight: 700; color: var(--white); line-height: 1.2; margin-bottom: 1.25rem; }
+  .who-text h2 em { font-style: normal; color: var(--gold); }
+  .who-text p { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.8; margin-bottom: 2rem; }
+
+  .who-list { list-style: none; display: flex; flex-direction: column; gap: 1rem; }
+  .who-list li { display: flex; align-items: flex-start; gap: 1rem; color: rgba(255,255,255,0.8); font-size: 0.975rem; line-height: 1.6; }
+  .who-list li::before { content: '✦'; color: var(--gold); font-size: 0.7rem; margin-top: 0.35rem; flex-shrink: 0; }
+
+  .who-pitch { background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.25); border-radius: 4px; padding: 2.5rem; }
+  .who-pitch-quote { font-family: 'Playfair Display', serif; font-size: clamp(1.2rem, 4vw, 1.4rem); font-style: italic; color: var(--white); line-height: 1.6; margin-bottom: 1.5rem; }
+  .who-pitch-quote em { font-style: normal; color: var(--gold); }
+  .who-pitch-attr { font-size: 0.85rem; color: var(--gold); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* SERVICES */
+  .services { background: var(--cream); padding: 6rem 4rem; text-align: center; }
+  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; max-width: 1100px; margin: 0 auto; }
+
+  .service-card {
+    background: var(--white); border: 1px solid rgba(15,31,46,0.08); border-radius: 4px;
+    padding: 2.5rem 2rem; text-align: left; position: relative; display: flex; flex-direction: column;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  .service-card:hover { transform: translateY(-6px); box-shadow: 0 30px 50px rgba(15,31,46,0.12); }
+  .service-card.featured { background: var(--navy); border: 2px solid var(--gold); }
+
+  .service-badge {
+    position: absolute; top: -14px; left: 2rem; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+    text-transform: uppercase; background: var(--gold); color: var(--navy); padding: 0.4rem 1rem; border-radius: 20px; box-shadow: 0 4px 10px rgba(201,168,76,0.3);
+  }
+
+  .service-tier { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; margin-top: 0.5rem; }
+  .service-card h3 { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+  .service-card.featured h3 { color: var(--white); }
+  .service-price { font-size: 2.25rem; font-weight: 700; color: var(--gold); margin-bottom: 0.5rem; }
+  .service-price span { font-size: 1rem; font-weight: 400; color: var(--gray); }
+  .service-card.featured .service-price span { color: rgba(255,255,255,0.5); }
+  .service-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.7; margin-bottom: 1.75rem; padding-bottom: 1.75rem; border-bottom: 1px solid rgba(15,31,46,0.08); }
+  .service-card.featured .service-desc { color: rgba(255,255,255,0.6); border-bottom-color: rgba(255,255,255,0.1); }
+  .service-features { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; margin-bottom: 2rem; }
+  .service-features li { display: flex; align-items: flex-start; gap: 0.75rem; font-size: 0.9rem; color: var(--navy); line-height: 1.5; }
+  .service-card.featured .service-features li { color: rgba(255,255,255,0.8); }
+  .service-features li::before { content: '✓'; color: var(--gold); font-weight: 700; flex-shrink: 0; }
+  .service-card .btn-primary, .service-card .btn-secondary { margin-top: auto; text-align: center; width: 100%; padding: 0.8rem 1rem; font-size: 0.85rem; }
+
+  /* HOW IT WORKS */
+  .how { background: var(--white); padding: 6rem 4rem; text-align: center; }
+  .steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; max-width: 1000px; margin: 0 auto; position: relative; }
+  .step { position: relative; padding: 1.5rem; }
+  .step-number { font-family: 'Playfair Display', serif; font-size: 4rem; font-weight: 900; color: rgba(201,168,76,0.15); line-height: 1; margin-bottom: 0.5rem; }
+  .step-icon { font-size: 1.75rem; margin-bottom: 1rem; }
+  .step h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: var(--navy); margin-bottom: 0.75rem; }
+  .step p { font-size: 0.9rem; color: var(--gray); line-height: 1.7; }
+
+  /* ABOUT */
+  .about { background: var(--light-gray); padding: 6rem 4rem; }
+  .about-inner { max-width: 1000px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1.6fr; gap: 5rem; align-items: start; }
+  .about-left { position: sticky; top: 6rem; }
+  .about-photo-block { border-radius: 4px; aspect-ratio: 3/4; overflow: hidden; border: 1px solid rgba(201, 168, 76, 0.3); box-shadow: 0 10px 25px rgba(15, 31, 46, 0.1); }
+  .about-photo-block img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .about-name { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--gold); font-weight: 700; margin-top: 1.25rem; text-align: center; }
+  .about-title { font-size: 0.8rem; color: var(--gray); text-align: center; margin-top: 0.25rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .about-right .section-label { justify-content: flex-start; }
+  .about-right .section-label::before { display: none; }
+  .about-right h2 { font-family: 'Playfair Display', serif; font-size: clamp(1.8rem, 6vw, 2.5rem); font-weight: 700; color: var(--navy); margin-bottom: 1.5rem; line-height: 1.2; }
+  .about-right p { font-size: 1rem; color: var(--gray); line-height: 1.85; margin-bottom: 1.25rem; }
+  .about-right p strong { color: var(--navy); }
+  .credentials { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .credential-tag { background: var(--white); border: 1px solid rgba(15,31,46,0.12); border-left: 2px solid var(--gold); padding: 0.5rem 1rem; font-size: 0.82rem; color: var(--navy); font-weight: 500; border-radius: 2px; }
+
+  /* SCRIPTURE */
+  .scripture { background: var(--navy); padding: 5rem 4rem; text-align: center; position: relative; overflow: hidden; }
+  .scripture::before { content: '†'; position: absolute; font-size: 20rem; color: rgba(201,168,76,0.03); top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; font-family: serif; }
+  .scripture blockquote { font-family: 'Playfair Display', serif; font-size: clamp(1.3rem, 5vw, 2rem); font-style: italic; color: var(--white); max-width: 700px; margin: 0 auto 1.25rem; line-height: 1.6; position: relative; z-index: 1; }
+  .scripture cite { font-family: 'DM Sans', sans-serif; font-size: 0.85rem; color: var(--gold); font-style: normal; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; position: relative; z-index: 1; display: block; }
+
+  /* FAQ */
+  .faq { background: var(--cream); padding: 6rem 4rem; }
+  .faq-inner { max-width: 720px; margin: 0 auto; text-align: center; }
+  .faq-list { display: flex; flex-direction: column; text-align: left; background: var(--white); padding: 1rem 2rem; border-radius: 4px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+  .faq-item { border-bottom: 1px solid rgba(15,31,46,0.08); }
+  .faq-item:last-child { border-bottom: none; }
+  .faq-q { padding: 1.5rem 0; font-weight: 600; font-size: 1.05rem; color: var(--navy); cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 1rem; user-select: none; transition: var(--transition); -webkit-tap-highlight-color: transparent; }
+  .faq-q:hover { color: var(--gold); }
+  .faq-icon { color: var(--gold); font-size: 1.25rem; font-weight: 300; flex-shrink: 0; transition: transform 0.3s ease; }
+  .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.3s cubic-bezier(0, 1, 0, 1); }
+  .faq-a-inner { padding-bottom: 1.5rem; font-size: 0.95rem; color: var(--gray); line-height: 1.8; }
+  .faq-item.open .faq-icon { transform: rotate(45deg); color: var(--navy); }
+  .faq-item.open .faq-a { max-height: 1000px; transition: max-height 0.5s ease-in-out; }
+
+  /* CONTACT / CTA */
+  .contact-section { background: var(--gold); padding: 6rem 4rem; text-align: center; }
+  .contact-container { max-width: 600px; margin: 0 auto; }
+  .contact-container h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 900; color: var(--navy); margin-bottom: 1rem; line-height: 1.15; }
+  .contact-container p { font-size: 1.1rem; color: rgba(15,31,46,0.8); margin-bottom: 2.5rem; line-height: 1.7; }
+  .premium-form { background: var(--white); padding: 2.5rem; border-radius: 4px; box-shadow: 0 20px 40px rgba(15,31,46,0.15); text-align: left; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--navy); margin-bottom: 0.5rem; }
+  
+  /* Inputs kept at 16px/1rem to prevent iOS auto-zoom */
+  .form-control { width: 100%; padding: 0.85rem 1rem; font-family: 'DM Sans', sans-serif; font-size: 1rem; color: var(--navy); background-color: var(--light-gray); border: 1px solid rgba(15,31,46,0.1); border-radius: 2px; transition: var(--transition); -webkit-appearance: none; }
+  .form-control:focus { outline: none; border-color: var(--gold); background-color: var(--white); box-shadow: 0 0 0 3px rgba(201,168,76,0.15); }
+  select.form-control { cursor: pointer; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230f1f2e' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; padding-right: 2.5rem; }
+  textarea.form-control { resize: vertical; min-height: 100px; }
+  .btn-submit { width: 100%; background: var(--navy); color: var(--white); padding: 1.1rem; border: none; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; cursor: pointer; border-radius: 2px; transition: var(--transition); text-align: center; margin-top: 0.5rem; -webkit-tap-highlight-color: transparent; }
+  .btn-submit:hover { background: #1a334d; transform: translateY(-1px); box-shadow: 0 5px 15px rgba(15,31,46,0.2); }
+  .form-sub-text { text-align: center; margin-top: 1rem; font-size: 0.8rem; color: var(--gray); }
+
+  /* LEGAL DISCLAIMER SECTION */
+  .legal-disclaimer {
+    background: var(--dark);
+    padding: 3rem 4rem 1rem;
+    text-align: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+  
+  .legal-disclaimer p {
+    font-size: 0.75rem;
+    color: rgba(255,255,255,0.4);
+    max-width: 900px;
+    margin: 0 auto;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  footer { background: var(--dark); padding: 3rem 4rem; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1.5rem; }
+  .footer-brand { font-family: 'Playfair Display', serif; color: var(--gold); font-size: 1.1rem; font-weight: 700; }
+  .footer-sub { font-size: 0.78rem; color: rgba(255,255,255,0.35); margin-top: 0.25rem; }
+  .footer-links { display: flex; gap: 2rem; list-style: none; }
+  .footer-links a { color: rgba(255,255,255,0.45); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; -webkit-tap-highlight-color: transparent; cursor: pointer; }
+  .footer-links a:hover { color: var(--gold); }
+  .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.25); }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* RESPONSIVE DESIGN FOR TABLETS & MOBILES */
+  @media (max-width: 992px) {
+    .who-inner, .about-inner { grid-template-columns: 1fr; gap: 3rem; }
+    .about-left { position: static; }
+  }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-logo-text { font-size: 1.1rem; }
+    .nav-logo-img { height: 35px; }
+    
+    /* Reveal Hamburger Menu */
+    .mobile-toggle { display: flex; }
+    
+    /* Off-Canvas Mobile Menu */
+    .nav-links {
+      position: fixed;
+      top: 0; 
+      right: -100%;
+      width: 100%;
+      height: 100vh;
+      background: rgba(15, 31, 46, 0.98);
+      flex-direction: column;
+      justify-content: center;
+      padding: 2rem;
+      transition: right 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .nav-links.active { right: 0; }
+    
+    .nav-links a { font-size: 1.25rem; padding: 1rem; display: block; text-align: center; width: 100%; }
+    .nav-cta { margin-top: 1rem; width: 80%; max-width: 300px; text-align: center; }
+
+    .hero { padding-top: 8rem; }
+    .hero, .pain, .who, .services, .how, .about, .scripture, .faq, .contact-section { padding: 4rem 1.5rem; }
+    .legal-disclaimer { padding: 3rem 1.5rem 1rem; }
+    
+    .premium-form { padding: 1.5rem; }
+    .faq-list { padding: 0.5rem 1rem; }
+    
+    footer { padding: 2.5rem 1.5rem; flex-direction: column; text-align: center; }
+    .footer-links { justify-content: center; flex-wrap: wrap; gap: 1rem; }
+  }
+
+  @media (max-width: 480px) {
+    .hero-buttons { flex-direction: column; width: 100%; }
+    .btn-primary, .btn-secondary { width: 100%; }
+    
+    /* Tighter padding on tiny screens to maximize reading area */
+    .hero, .pain, .who, .services, .how, .about, .scripture, .faq, .contact-section { padding: 3rem 1.25rem; }
+    .legal-disclaimer { padding: 2.5rem 1.25rem 1rem; }
+    .pain-card, .service-card, .who-pitch { padding: 1.5rem; }
+    
+    .section-label { flex-direction: column; text-align: center; gap: 0.5rem; }
+    .section-label::before, .section-label::after { display: none; }
+    .about-right .section-label { align-items: flex-start; text-align: left; }
+    
+    .step { padding: 1rem 0; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo-container">
+    <img src="logo.png" alt="REDEEMED Revenue Co. official business logo" class="nav-logo-img">
+    <div class="nav-logo-text">REDEEMED <br><span>Revenue Co.</span></div>
+  </a>
+  
+  <!-- Hamburger Menu Icon -->
+  <div class="mobile-toggle" id="mobile-menu-toggle">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <ul class="nav-links" id="nav-links">
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<section class="hero">
+  <div class="hero-cross">†</div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">A Division of REDEEMED Culture Capital LLC</div>
+    <h1>Your Calling<br/>Deserves <em>a Strategy.</em></h1>
+    <p class="hero-sub">You built your business on God-given talent. We build the marketing engine that makes sure the world finds you — so you can stay focused on your craft, your clients, and your calling.</p>
+    <p class="hero-tagline">Done-for-you marketing for local service businesses, built by someone who understands your numbers and your mission.</p>
+    <div class="hero-buttons">
+      <a href="#contact" class="btn-primary">Book a Free Discovery Call</a>
+      <a href="#services" class="btn-secondary">See Our Packages</a>
+    </div>
+  </div>
+</section>
+
+<section class="pain" id="who">
+  <div class="section-label">Sound Familiar?</div>
+  <h2>You're great at what you do. Marketing shouldn't be what slows you down.</h2>
+  <p class="pain-intro">If any of these hit close to home, you're exactly who we built this for.</p>
+  <div class="pain-grid">
+    <div class="pain-card">
+      <p>I've been posting in neighborhood Facebook groups for months and barely getting any leads from it.</p>
+    </div>
+    <div class="pain-card">
+      <p>I'm paying for Yelp and Nextdoor ads but I have no idea if they're actually working.</p>
+    </div>
+    <div class="pain-card">
+      <p>I don't have a real website — just a Facebook page — and I know that's hurting me.</p>
+    </div>
+  </div>
+</section>
+
+<section class="who">
+  <div class="who-inner">
+    <div class="who-text">
+      <div class="section-label">Our Mission</div>
+      <h2>We free you to do what <em>God built you to do.</em></h2>
+      <p>REDEEMED Revenue Co. exists to free business owners from the burden of marketing — so they can focus on the God-given talents that called them to build in the first place. We help local service businesses turn scattered online presence into real, consistent revenue, while stewarding their time, money, and mission with integrity.</p>
+      <ul class="who-list">
+        <li>Local service businesses ready to move beyond Yelp and Facebook groups</li>
+        <li>Business owners who are great at their craft but stretched thin on time</li>
+        <li>Faith-driven entrepreneurs who want to grow with purpose and integrity</li>
+        <li>Hustlers who network well but aren't converting online</li>
+        <li>Anyone ready to stop guessing and start growing</li>
+      </ul>
+    </div>
+    <div class="who-pitch">
+      <p class="who-pitch-quote">"Most marketing agencies don't understand your business. Most financial advisors don't understand your marketing. <em>I understand both</em> — and I built REDEEMED Revenue Co. so you can stop guessing and start growing."</p>
+      <div class="who-pitch-attr">— Tyler Hlad, Founder</div>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="section-label">What We Offer</div>
+  <h2>Done-For-You Marketing Packages</h2>
+  <p class="services-intro">No guesswork. No wasted budget. Just clear strategy and real execution — so you can get back to business.</p>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <div class="service-tier">Starter</div>
+      <h3>Foundation</h3>
+      <div class="service-price">$1,000<span>/mo</span></div>
+      <p class="service-desc">Perfect for businesses replacing Yelp and Facebook group posting with a real, professional online presence.</p>
+      <ul class="service-features">
+        <li>12 social media posts per month</li>
+        <li>Basic ad management (Facebook or Google)</li>
+        <li>Monthly performance snapshot</li>
+        <li>Brand voice document</li>
+        <li>Direct access to Tyler</li>
+      </ul>
+      <a href="#contact" class="btn-secondary">Get Started</a>
+    </div>
+
+    <div class="service-card featured">
+      <div class="service-badge">Most Popular</div>
+      <div class="service-tier">Growth</div>
+      <h3>Momentum</h3>
+      <div class="service-price">$2,500<span>/mo</span></div>
+      <p class="service-desc">Full-service marketing for businesses ready to build a predictable pipeline and stop relying on word-of-mouth alone.</p>
+      <ul class="service-features">
+        <li>Ads + content + email campaigns</li>
+        <li>Professional website (built & managed)</li>
+        <li>Monthly strategy report with insights</li>
+        <li>Google Business Profile optimization</li>
+        <li>Lead tracking and ROI reporting</li>
+        <li>Priority response and support</li>
+      </ul>
+      <a href="#contact" class="btn-primary">Get Started</a>
+    </div>
+
+    <div class="service-card">
+      <div class="service-tier">Partner</div>
+      <h3>Kingdom Builder</h3>
+      <div class="service-price">$4,500<span>/mo</span></div>
+      <p class="service-desc">For growth-minded owners who want marketing and financial strategy working together to scale with purpose.</p>
+      <ul class="service-features">
+        <li>Everything in Momentum</li>
+        <li>Monthly marketing + budget allocation</li>
+        <li>Budget allocation advisory</li>
+        <li>Campaign performance deep-dives</li>
+        <li>Referral and retention strategy</li>
+        <li>First access to new services</li>
+      </ul>
+      <a href="#contact" class="btn-secondary">Get Started</a>
+    </div>
+
+  </div>
+</section>
+
+<section class="how" id="how">
+  <div class="section-label">The Process</div>
+  <h2>Simple. Strategic. Done For You.</h2>
+  <p class="how-intro">From your first call to your first campaign — we handle it all so you don't have to.</p>
+  <div class="steps">
+    <div class="step">
+      <div class="step-number">01</div>
+      <div class="step-icon">📞</div>
+      <h3>Discovery Call</h3>
+      <p>We learn your business, your goals, your current marketing, and where the gaps are. No pitch. Just conversation.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">02</div>
+      <div class="step-icon">🗺️</div>
+      <h3>Custom Strategy</h3>
+      <p>We build a tailored marketing plan based on your budget, your audience, and what will actually move the needle for your business.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">03</div>
+      <div class="step-icon">⚙️</div>
+      <h3>We Execute</h3>
+      <p>Content, ads, email, website — we handle the execution. You review, approve, and stay focused on your clients.</p>
+    </div>
+    <div class="step">
+      <div class="step-number">04</div>
+      <div class="step-icon">📈</div>
+      <h3>Grow Together</h3>
+      <p>Monthly reporting, strategy check-ins, and ongoing optimization. We grow as your business grows.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <div class="about-left">
+      <div class="about-photo-block">
+        <img src="tyler-headshot.jpg" alt="Tyler Hlad — Founder of REDEEMED Revenue Co.">
+      </div>
+      <div class="about-name">Tyler Hlad</div>
+      <div class="about-title">Founder, REDEEMED Revenue Co.</div>
+    </div>
+    <div class="about-right">
+      <div class="section-label">Behind the Mission</div>
+      <h2>An Advisor Who Knows Both Marketing and the Numbers.</h2>
+      <p>Before launching REDEEMED Revenue Co., I spent years navigating both the marketing and financial consulting spaces. What I noticed was a massive gap: marketing agencies will happily take your money to run ads, but they have no idea how it impacts your real bottom-line profitability. Conversely, your accountant knows your margins but doesn't have a clue how to acquire a client online.</p>
+      <p><strong>I built this company to be the bridge.</strong> I look at marketing not as a creative experiment, but as a strategic asset deployment. Every dollar you spend with us should buy you back peace of mind, time with your family, and a clearer track toward your business goals.</p>
+      <p>More importantly, we run our company with structural transparency. No vanity metrics, no hidden markup formulas, and no empty promises. Just honest strategy built on Biblical stewardship frameworks.</p>
+      <div class="credentials">
+        <span class="credential-tag">Marketing Strategy</span>
+        <span class="credential-tag">Budget Allocation</span>
+        <span class="credential-tag">Local Lead Generation</span>
+        <span class="credential-tag">Faith-First Systems</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="scripture">
+  <blockquote>"His master replied, 'Well done, good and faithful servant! You have been faithful with a few things; I will put you in charge of many things. Come and share your master's happiness!'"</blockquote>
+  <cite>Matthew 25:23</cite>
+</section>
+
+<section class="faq">
+  <div class="faq-inner">
+    <h2>Frequently Asked Questions</h2>
+    <div class="faq-list">
+      
+      <div class="faq-item">
+        <div class="faq-q"><span>Do you require long-term contracts?</span><div class="faq-icon">+</div></div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            No, we work on a month-to-month model. We believe our results should keep you partnered with us, not a binding legal document. We ask for a 30-day notice prior to stopping campaigns to cleanly wrap up active ad cycles.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>Does the monthly price include the ad spend?</span><div class="faq-icon">+</div></div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            No. The packages cover our full-service management, content creation, copywriting, setup, and reporting. Your ad budget (paid directly to Google or Facebook) is controlled entirely by you. During our Discovery Call, we'll recommend an optimal budget for your local market size.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>What if I already have a website?</span><div class="faq-icon">+</div></div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            If you choose our Momentum or Kingdom Builder package, we will run a full technical audit on your current site. If it's performing well, we will optimize it for higher conversions. If it's outdated or slowing you down, we'll build and manage a brand-new custom asset for you as part of the service.
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q"><span>How quickly will I see results?</span><div class="faq-icon">+</div></div>
+        <div class="faq-a">
+          <div class="faq-a-inner">
+            Paid traffic campaigns (Google and Meta Ads) can begin generating leads within the first 14 days of going live. Organic optimization (Google Business Profile and SEO) is a compounding long-term play that usually hits its true momentum within 60 to 90 days.
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="contact-section" id="contact">
+  <div class="contact-container">
+    <h2>Let's Protect Your Mission</h2>
+    <p>Ready to move past word-of-mouth gambling? Drop your details below to schedule your free 15-minute Strategy Assessment. Let’s get your numbers working together.</p>
+    
+    <form action="https://formspree.io/f/mwvjeeye" method="POST" class="premium-form">
+      <div class="form-group">
+        <label for="name">Your Full Name</label>
+        <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" name="email" id="email" class="form-control" placeholder="john@company.com" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" class="form-control" placeholder="(555) 000-0000" required>
+      </div>
+      
+      <div class="form-group">
+        <label for="business">Business Name & Industry</label>
+        <input type="text" name="business" id="business" class="form-control" placeholder="Apex Plumbing Co." required>
+      </div>
+      
+      <div class="form-group">
+        <label for="package">Target Growth Package</label>
+        <select name="package" id="package" class="form-control">
+          <option value="not-sure">I'm not sure yet — Let's talk</option>
+          <option value="foundation">Starter: Foundation ($1,000/mo)</option>
+          <option value="momentum">Growth: Momentum ($2,500/mo)</option>
+          <option value="kingdom-builder">Partner: Kingdom Builder ($4,500/mo)</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">What is your biggest roadblock right now?</label>
+        <textarea name="message" id="message" class="form-control" placeholder="Tell us briefly about your current marketing setup and goals..." required></textarea>
+      </div>
+      
+      <button type="submit" class="btn-submit">Submit Strategy Request</button>
+      
+      <p class="form-sub-text">🔒 Safe & confidential. We protect your data with strict integrity.</p>
+    </form>
+    
+  </div>
+</section>
+
+<section class="legal-disclaimer">
+  <p>
+    <strong>Legal Disclaimer:</strong> REDEEMED Revenue Co. provides marketing, operational consulting, and general business strategy. We do not provide formal legal, tax, accounting, or investment financial advisory services. No information on this website or provided during consulting sessions should be construed as regulated financial advice. Please consult with a certified public accountant (CPA) or licensed financial fiduciary for specific financial management decisions. Results from marketing campaigns, search engine optimization, and business coaching vary depending on your industry, local market, budget, and execution. REDEEMED Revenue Co. makes no guarantees of explicit revenue increases, profit margins, or specific lead volumes.
+  </p>
+</section>
+
+<footer>
+  <div>
+    <div class="footer-brand">REDEEMED Revenue Co.</div>
+    <div class="footer-sub">A Division of REDEEMED Culture Capital LLC</div>
+  </div>
+  <ul class="footer-links">
+    <li><a href="#who">Who We Serve</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#" onclick="alert('Privacy Policy: REDEEMED Revenue Co. collects name, email, phone number, and business details solely to evaluate consulting requests. We do not sell, rent, or distribute your information to third parties. Data is processed securely via Formspree.'); return false;">Privacy Policy</a></li>
+  </ul>
+  <div class="footer-copy">
+    &copy; 2026 REDEEMED Revenue Co. All rights reserved.
+  </div>
+</footer>
+
+<script>
+  // FAQ Logic
+  document.querySelectorAll('.faq-q').forEach(questionBlock => {
+    questionBlock.addEventListener('click', () => {
+      const parentItem = questionBlock.parentElement;
+      
+      document.querySelectorAll('.faq-item').forEach(item => {
+        if (item !== parentItem) item.classList.remove('open');
+      });
+      
+      parentItem.classList.toggle('open');
+    });
+  });
+
+  // Mobile Hamburger Menu Logic
+  const mobileToggle = document.getElementById('mobile-menu-toggle');
+  const navLinks = document.getElementById('nav-links');
+  const navItems = navLinks.querySelectorAll('a');
+
+  mobileToggle.addEventListener('click', () => {
+    mobileToggle.classList.toggle('active');
+    navLinks.classList.toggle('active');
+  });
+
+  // Close menu when clicking a link
+  navItems.forEach(item => {
+    item.addEventListener('click', () => {
+      mobileToggle.classList.remove('active');
+      navLinks.classList.remove('active');
+    });
+  });
+</script>
+
+</body>
+</html>
